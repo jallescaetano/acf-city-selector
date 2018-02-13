@@ -69,7 +69,7 @@
 	 *
 	 * @return array|mixed
 	 */
-	function acfcs_get_countries_db() {
+	function acfcs_get_countries() {
 
 		$output = get_transient( 'acfcs_countries' );
 		if ( false == $output ) {
