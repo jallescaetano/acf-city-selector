@@ -1,8 +1,8 @@
 <div class="admin_right">
 
     <h3><?php esc_html_e( 'About the plugin', 'acf-city-selector' ); ?></h3>
-    <p><?php echo sprintf( esc_html__( 'This plugin is an extension for %s. I built it because there was no properly working plugin which did this.', 'acf-city-selector' ), '<a href="' . esc_url( 'https://www.advancedcustomfields.com/' ) . '" target="_blank">Advanced Custom Fields</a>' ); ?>
-    <p><?php echo sprintf( __( '<a href="%s" target="_blank">Click here</a> for our website.', 'acf-city-selector' ), esc_url( 'http://acfcs.berryplasman.com/?utm_source=wpadmin&utm_medium=about_plugin&utm_campaign=acf-plugin' ) ); ?></p>
+    <p><?php echo sprintf( esc_html__( 'This plugin is an extension for %s. It was created because there was no (properly working) plugin which did this.', 'acf-city-selector' ), '<a href="' . esc_url( 'https://www.advancedcustomfields.com/' ) . '" target="_blank">Advanced Custom Fields</a>' ); ?>
+    <p><?php echo sprintf( __( '<a href="%s" target="_blank">Click here</a> for the \'official\' website.', 'acf-city-selector' ), esc_url( 'http://acfcs.berryplasman.com/?utm_source=wpadmin&utm_medium=about_plugin&utm_campaign=acf-plugin' ) ); ?></p>
 
 
     <hr />
@@ -20,5 +20,9 @@
 
     <p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=24H4ULSQAT9ZL" target="_blank"><img src="<?php echo plugins_url( '/assets/img/paypal_donate.gif', dirname( __FILE__ )  ); ?>" alt="" class="donate_img" /></a>
 		<?php esc_html_e( 'If you like this plugin, buy me a coke to show your appreciation so I can continue to develop it.', 'acf-city-selector' ); ?></p>
-
+	<?php if ( defined( 'ENV' ) && ENV == 'dev' ) { ?>
+        <p>
+	        <?php echo sprintf( __( 'Or you can buy one of the <a href="%s" target="_blank">PRO packages</a> from the \'official\' website.', 'acf-city-selector' ), esc_url( 'http://acfcs.berryplasman.com/packages/?utm_source=wpadmin&utm_medium=about_plugin&utm_campaign=acf-plugin' ) ); ?>
+        </p>
+	<?php } ?>
 </div><!-- end .admin_right -->
