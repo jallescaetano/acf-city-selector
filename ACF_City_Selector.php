@@ -41,26 +41,32 @@
 				// set text domain
 				load_plugin_textdomain( 'acf-city-selector', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 
-				register_activation_hook( __FILE__,    array( $this, 'acfcs_plugin_activation' ) );
-				register_deactivation_hook( __FILE__,  array( $this, 'acfcs_plugin_deactivation' ) );
+				register_activation_hook( __FILE__,        array( $this, 'acfcs_plugin_activation' ) );
+				register_deactivation_hook( __FILE__,      array( $this, 'acfcs_plugin_deactivation' ) );
 
 				// actions
-				add_action( 'acf/register_fields',          array( $this, 'acfcs_include_field_types' ) );    // v4
-				add_action( 'acf/include_field_types',      array( $this, 'acfcs_include_field_types' ) );    // v5
-				add_action( 'wp_enqueue_scripts',           array( $this, 'acfcs_add_frontend_css' ) );
-				add_action( 'admin_enqueue_scripts',        array( $this, 'acfcs_add_admin_css' ) );
-				add_action( 'admin_menu',                   array( $this, 'acfcs_add_admin_pages' ) );
-				add_action( 'admin_init',                   array( $this, 'acfcs_errors' ) );
+				add_action( 'acf/register_fields',              array( $this, 'acfcs_include_field_types' ) );    // v4
+				add_action( 'acf/include_field_types',          array( $this, 'acfcs_include_field_types' ) );    // v5
+				add_action( 'wp_enqueue_scripts',               array( $this, 'acfcs_add_frontend_css' ) );
+				add_action( 'admin_enqueue_scripts',            array( $this, 'acfcs_add_admin_css' ) );
+				add_action( 'admin_menu',                       array( $this, 'acfcs_add_admin_pages' ) );
+				add_action( 'admin_init',                       array( $this, 'acfcs_errors' ) );
 
-				// add_action( 'save_post',                    array( $this, 'acfcs_before_save' ), 10, 3 );
+				// transient actions
+				add_action( 'acfcs_after_success_import',       array( $this, 'acfcs_delete_transient_countries' ) );
+				add_action( 'acfcs_after_success_import_raw',   array( $this, 'acfcs_delete_transient_countries' ) );
+				add_action( 'acfcs_after_success_nuke',         array( $this, 'acfcs_delete_transients_after_nuke' ) );
+				add_action( 'acfcs_after_success_import_be',    array( $this, 'acfcs_delete_transient_be' ) );
+				add_action( 'acfcs_after_success_import_lu',    array( $this, 'acfcs_delete_transient_lu' ) );
+				add_action( 'acfcs_after_success_import_nl',    array( $this, 'acfcs_delete_transient_nl' ) );
 
 				// always load, move to $this->
-				add_action( 'init',                         array( $this, 'acfcs_upload_csv_file' ) );
-				add_action( 'init',                         array( $this, 'acfcs_do_something_with_file' ) );
-				add_action( 'init',                         array( $this, 'acfcs_import_raw_data' ) );
-				add_action( 'init',                         array( $this, 'acfcs_import_preset_countries' ) );
-				add_action( 'init',                         array( $this, 'acfcs_preserve_settings' ) );
-				add_action( 'init',                         array( $this, 'acfcs_truncate_table' ) );
+				add_action( 'init',                             array( $this, 'acfcs_upload_csv_file' ) );
+				add_action( 'init',                             array( $this, 'acfcs_do_something_with_file' ) );
+				add_action( 'init',                             array( $this, 'acfcs_import_raw_data' ) );
+				add_action( 'init',                             array( $this, 'acfcs_import_preset_countries' ) );
+				add_action( 'init',                             array( $this, 'acfcs_preserve_settings' ) );
+				add_action( 'init',                             array( $this, 'acfcs_truncate_table' ) );
 
 				// filters
 				add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ),  array( $this, 'acfcs_settings_link' ) );
@@ -71,10 +77,12 @@
 				$this->acfcs_check_uploads_folder();
 				$this->acfcs_check_table();
 
-				include( 'inc/donate-box.php' );
-				include( 'inc/help-tabs.php' );
+				// includes
 				include( 'inc/country-field.php' );
 				include( 'inc/verify-csv-data.php' );
+				include( 'inc/misc-functions.php' );
+				include( 'inc/donate-box.php' );
+				include( 'inc/help-tabs.php' );
 			}
 
 
@@ -93,7 +101,6 @@
 			 */
 			public function acfcs_plugin_deactivation() {
 			    // nothing yet
-                // @TODO: delete any settings
 			}
 
 
@@ -135,43 +142,6 @@
 				$sql = ob_get_clean();
 				dbDelta( $sql );
 
-			}
-
-
-			/**
-             * Force update_post_meta in v4 because values are not saved (probably not needed anymore)
-             *
-			 * @param $post_id
-			 * @param $post
-			 * @param $update
-			 */
-			public function acfcs_before_save( $post_id, $post, $update ) {
-
-				// bail early if no ACF data
-				if ( ! isset( $_POST['acf'] ) ) {
-					return;
-				}
-
-				// only run with v4
-				if ( 5 > get_option( 'acf_version' ) ) {
-
-					$field_name = '';
-					$fields     = $_POST['acf'];
-					$new_value  = '';
-					if ( is_array( $fields ) && count( $fields ) > 0 ) {
-						foreach( $fields as $key => $value ) {
-							$field = get_field_object( $key );
-							if ( isset( $field['type' ] ) && $field['type'] == 'acf_city_selector' ) {
-								$field_name = $field['name'];
-								$new_value  = $value;
-								break;
-							}
-						}
-					}
-
-					// store data in $field_name
-					update_post_meta( $post_id, $field_name, $new_value );
-				}
 			}
 
 
@@ -532,6 +502,48 @@
 
 				// include
 				include_once( 'fields/acf-city_selector-v' . $version . '.php' );
+			}
+
+
+			/**
+			 * Delete transients after nuke all
+			 */
+			public function acfcs_delete_transients_after_nuke() {
+			    $this->acfcs_delete_transient_countries();
+				$this->acfcs_delete_transient_be();
+				$this->acfcs_delete_transient_lu();
+				$this->acfcs_delete_transient_nl();
+			}
+
+			/**
+			 * Delete countries transient
+			 */
+			public function acfcs_delete_transient_countries() {
+				delete_transient( 'acfcs_countries' );
+			}
+
+			/**
+			 * Delete BE transient
+			 */
+			public function acfcs_delete_transient_be() {
+				delete_transient( 'acfcs_cities_be' );
+				delete_transient( 'acfcs_countries' );
+			}
+
+			/**
+			 * Delete LU transient
+			 */
+			public function acfcs_delete_transient_lu() {
+				delete_transient( 'acfcs_cities_lu' );
+				delete_transient( 'acfcs_countries' );
+			}
+
+			/**
+			 * Delete NL transient
+			 */
+			public function acfcs_delete_transient_nl() {
+				delete_transient( 'acfcs_cities_nl' );
+				delete_transient( 'acfcs_countries' );
 			}
 
 
