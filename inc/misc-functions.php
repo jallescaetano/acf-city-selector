@@ -1,12 +1,21 @@
 <?php
+
+	/**
+	 * Sort an array alphabetically starting with 's (like 's Gravenhage)
+	 *
+	 * @param $a
+	 * @param $b
+	 *
+	 * @return int
+	 */
 	function acfcs_sort_array_with_quotes( $a, $b ) {
 		return strnatcasecmp(
-			acfcs_custom_sort_with_quotes( $a[ 'label' ] ),
-			acfcs_custom_sort_with_quotes( $b[ 'label' ] )
+			acfcs_trim_array_with_qutes( $a[ 'label' ] ),
+			acfcs_trim_array_with_qutes( $b[ 'label' ] )
 		);
 	}
 
-	function acfcs_custom_sort_with_quotes( $city ) {
+	function acfcs_trim_array_with_qutes( $city ) {
 		// strip quote marks
 		$city = trim( $city, '\'s ' );
 		$city = preg_replace('/^\s*\'s \s+/i', '', $city );
