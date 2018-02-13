@@ -159,7 +159,6 @@
 			}
 			$items                 = array();
 			$items[0]['id']        = "";
-			// $items[0]['city_name'] = "";
 			$items[0]['city_name'] = esc_html__( 'Select a city', 'acf-city-selector' );
 			$i                     = 1;
 

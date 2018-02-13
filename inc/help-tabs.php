@@ -9,8 +9,6 @@
 	 */
 	function acfcs_help_tabs( $old_help, $screen_id, $screen ) {
 
-		// echo '<pre>'; var_dump($screen_id); echo '</pre>'; exit;
-
 		$screen_array = array(
 			'settings_page_acfcs-options',
 			'settings_page_acfcs-settings',
