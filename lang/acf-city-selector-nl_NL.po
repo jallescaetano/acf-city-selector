@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ACF City Selector 1.0\n"
-"POT-Creation-Date: 2018-02-13 04:20+0100\n"
-"PO-Revision-Date: 2018-02-13 04:25+0100\n"
+"POT-Creation-Date: 2018-02-13 20:52+0100\n"
+"PO-Revision-Date: 2018-02-13 20:52+0100\n"
 "Last-Translator: Beee\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,13 +16,13 @@ msgstr ""
 "esc_attr__;esc_attr_e;esc_attr_x\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ACF_City_Selector.php:196 ACF_City_Selector.php:326
-#: ACF_City_Selector.php:384 ACF_City_Selector.php:419
-#: ACF_City_Selector.php:447
+#: ACF_City_Selector.php:166 ACF_City_Selector.php:296
+#: ACF_City_Selector.php:354 ACF_City_Selector.php:389
+#: ACF_City_Selector.php:417
 msgid "Something went wrong, please try again."
 msgstr "Er ging iets fout, probeer het aub nog een keer."
 
-#: ACF_City_Selector.php:208
+#: ACF_City_Selector.php:178
 #, php-format
 msgid ""
 "File '%s' is successfully uploaded and now shows under 'Select files to "
@@ -31,74 +31,74 @@ msgstr ""
 "Het bestand \"%s\" is succesvol ge-upload en is nu zichtbaar onder 'Select "
 "bestanden om te importeren'"
 
-#: ACF_City_Selector.php:215
+#: ACF_City_Selector.php:185
 msgid "Upload failed. Please try again."
 msgstr "Upload mislukt. Probeer het aub opnieuw."
 
-#: ACF_City_Selector.php:232
+#: ACF_City_Selector.php:202
 msgid "Something went wrong. Please try again."
 msgstr "Er ging iets fout, probeer het aub nog een keer."
 
-#: ACF_City_Selector.php:238
+#: ACF_City_Selector.php:208
 msgid "You didn't select a file."
 msgstr "Je hebt geen bestand gekozen."
 
-#: ACF_City_Selector.php:254
+#: ACF_City_Selector.php:224
 msgid "Congratulations, there appear to be no errors in your CSV."
 msgstr "Gefeliciteerd, er schijnen geen fouten in je CSV voor te komen."
 
-#: ACF_City_Selector.php:290
+#: ACF_City_Selector.php:260
 #, php-format
 msgid "Congratulations. You have successfully imported %d cities."
 msgstr "Gefeliciteerd, je hebt %d steden geïmporteerd."
 
-#: ACF_City_Selector.php:305
+#: ACF_City_Selector.php:275
 #, php-format
 msgid "File \"%s\" successfully deleted."
 msgstr "File \"%s\" is succesvol verwijderd."
 
-#: ACF_City_Selector.php:309
+#: ACF_City_Selector.php:279
 msgid "Files successfully deleted."
 msgstr "Bestanden succesvol verwijderd."
 
-#: ACF_City_Selector.php:334
+#: ACF_City_Selector.php:304
 msgid "Congratulations, your CSV data seems valid."
 msgstr "Gefeliciteerd, je CSV data lijkt geen fouten te bevatten."
 
-#: ACF_City_Selector.php:365
+#: ACF_City_Selector.php:335
 #, php-format
 msgid "Congratulations, you imported %d city."
 msgstr "Gefeliciteerd, je hebt %d stad geïmporteerd."
 
-#: ACF_City_Selector.php:430
+#: ACF_City_Selector.php:400
 msgid "All cities are deleted."
 msgstr "Alle steden zijn verwijderd."
 
-#: ACF_City_Selector.php:457
+#: ACF_City_Selector.php:427
 msgid "Settings saved"
 msgstr "Instellingen opgeslagen"
 
-#: ACF_City_Selector.php:491
+#: ACF_City_Selector.php:461
 msgid "Warning"
 msgstr "Waarschuwing"
 
-#: ACF_City_Selector.php:498
+#: ACF_City_Selector.php:468
 msgid "Error"
 msgstr "Fout"
 
-#: ACF_City_Selector.php:510
+#: ACF_City_Selector.php:480
 msgid "Dismiss this notice"
 msgstr "Verberg deze melding"
 
-#: ACF_City_Selector.php:542 ACF_City_Selector.php:555
+#: ACF_City_Selector.php:554 ACF_City_Selector.php:567
 msgid "Settings"
 msgstr "Instellingen"
 
-#: ACF_City_Selector.php:553 inc/pro-page.php:25
+#: ACF_City_Selector.php:565 inc/pro-page.php:25
 msgid "Go Pro"
 msgstr "Go Pro"
 
-#: ACF_City_Selector.php:555
+#: ACF_City_Selector.php:567
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -138,7 +138,7 @@ msgstr "Selecteer een land"
 msgid "Select a province/state"
 msgstr "Selecteer een provincie/staat"
 
-#: fields/acf-city_selector-v5.php:139 inc/country-field.php:163
+#: fields/acf-city_selector-v5.php:139 inc/country-field.php:162
 msgid "Select a city"
 msgstr "Selecteer een stad"
 
@@ -210,10 +210,6 @@ msgstr ""
 #: inc/dashboard-page.php:8 inc/pro-page.php:8 inc/settings-page.php:8
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Je hebt niet voldoende rechten om deze pagina te bekijken."
-
-#: inc/dashboard-page.php:18
-msgid "ACF City Selector"
-msgstr "ACF Stad Kiezer"
 
 #: inc/dashboard-page.php:25
 msgid "Upload a CSV file"
@@ -292,86 +288,86 @@ msgstr ""
 "a> overweegt. Dit motiveert mij weer om de plugin te verbeteren in mijn "
 "vrije tijd."
 
-#: inc/help-tabs.php:25
+#: inc/help-tabs.php:23
 msgid "Import CSV from file"
 msgstr "Importeer CSV data van bestand"
 
-#: inc/help-tabs.php:28
+#: inc/help-tabs.php:26
 msgid "On this page you can import a CSV file which contains cities to import."
 msgstr "Op deze pagina kun je CSV data die steden bevat importeren."
 
-#: inc/help-tabs.php:29
+#: inc/help-tabs.php:27
 msgid "You can only upload *.csv files."
 msgstr "Je kunt alleen *.csv bestanden uploaden."
 
-#: inc/help-tabs.php:30 inc/help-tabs.php:76
+#: inc/help-tabs.php:28 inc/help-tabs.php:74
 msgid "The required order is \"City,State code,State,Country code,Country\"."
 msgstr ""
 "De verplichten volgorde is \"Stad,Staat/provincie code (afkorting),Staat/"
 "provincie,Land code (afkorting),Land\"."
 
-#: inc/help-tabs.php:34 inc/help-tabs.php:80
+#: inc/help-tabs.php:32 inc/help-tabs.php:78
 msgid "Field"
 msgstr "Veld"
 
-#: inc/help-tabs.php:35 inc/help-tabs.php:81
+#: inc/help-tabs.php:33 inc/help-tabs.php:79
 msgid "What to enter"
 msgstr "Wat in te vullen"
 
-#: inc/help-tabs.php:36 inc/help-tabs.php:82
+#: inc/help-tabs.php:34 inc/help-tabs.php:80
 msgid "Note"
 msgstr "Notitie"
 
-#: inc/help-tabs.php:41 inc/help-tabs.php:87
+#: inc/help-tabs.php:39 inc/help-tabs.php:85
 msgid "City"
 msgstr "Stad"
 
-#: inc/help-tabs.php:42 inc/help-tabs.php:88
+#: inc/help-tabs.php:40 inc/help-tabs.php:86
 msgid "full name"
 msgstr "volledige naam"
 
-#: inc/help-tabs.php:46 inc/help-tabs.php:92
+#: inc/help-tabs.php:44 inc/help-tabs.php:90
 msgid "State code"
 msgstr "Staat/provincie code"
 
-#: inc/help-tabs.php:47 inc/help-tabs.php:93
+#: inc/help-tabs.php:45 inc/help-tabs.php:91
 msgid "state abbreviation"
 msgstr "staat/provincie afkorting"
 
-#: inc/help-tabs.php:48 inc/help-tabs.php:58 inc/help-tabs.php:94
-#: inc/help-tabs.php:104
+#: inc/help-tabs.php:46 inc/help-tabs.php:56 inc/help-tabs.php:92
+#: inc/help-tabs.php:102
 msgid "exactly 2 characters"
 msgstr "precies 2 karakters"
 
-#: inc/help-tabs.php:51 inc/help-tabs.php:97
+#: inc/help-tabs.php:49 inc/help-tabs.php:95
 msgid "State"
 msgstr "Staat/provincie"
 
-#: inc/help-tabs.php:52 inc/help-tabs.php:98
+#: inc/help-tabs.php:50 inc/help-tabs.php:96
 msgid "full state name"
 msgstr "volledige naam"
 
-#: inc/help-tabs.php:56 inc/help-tabs.php:102
+#: inc/help-tabs.php:54 inc/help-tabs.php:100
 msgid "Country code"
 msgstr "Land code"
 
-#: inc/help-tabs.php:57 inc/help-tabs.php:103
+#: inc/help-tabs.php:55 inc/help-tabs.php:101
 msgid "country abbreviation"
 msgstr "land afkorting"
 
-#: inc/help-tabs.php:61 inc/help-tabs.php:107 inc/pro-page.php:42
+#: inc/help-tabs.php:59 inc/help-tabs.php:105 inc/pro-page.php:42
 msgid "Country"
 msgstr "Land"
 
-#: inc/help-tabs.php:62 inc/help-tabs.php:108
+#: inc/help-tabs.php:60 inc/help-tabs.php:106
 msgid "full country name"
 msgstr "volledige land naam"
 
-#: inc/help-tabs.php:71
+#: inc/help-tabs.php:69
 msgid "Import raw CSV data"
 msgstr "Importeer ruwe CSV data"
 
-#: inc/help-tabs.php:74
+#: inc/help-tabs.php:72
 msgid ""
 "On this page you can import cities. You can select cities from The "
 "Netherlands, Belgium and Luxembourg which come included in the plugin."
@@ -379,7 +375,7 @@ msgstr ""
 "Op deze pagina kan je steden importeren. Je kan steden kiezen uit Nederland, "
 "België en Luxemburg, welke ingesloten zijn in de plugin."
 
-#: inc/help-tabs.php:75
+#: inc/help-tabs.php:73
 msgid ""
 "You can also import raw csv data, but this has to be formatted (and ordered) "
 "in a certain way, otherwise it won't work."
@@ -387,11 +383,11 @@ msgstr ""
 "Je kunt ook ‘raw’ CSV data importeren maar dit moet volgens een bepaald "
 "format en in een bepaalde volgorde, anders werkt het niet."
 
-#: inc/help-tabs.php:120
+#: inc/help-tabs.php:118
 msgid "Import preset countries"
 msgstr "Importeer geïnstalleerde landen"
 
-#: inc/help-tabs.php:122
+#: inc/help-tabs.php:120
 msgid ""
 "On this page you can (re-)import the countries which come with the plugin "
 "when it's installed; Netherlands, Belgium and Luxembourg (if needed)."
@@ -399,7 +395,7 @@ msgstr ""
 "Op deze pagina kan je steden (opnieuw) importeren. Je kan steden kiezen uit "
 "Nederland, België en Luxemburg, welke ingesloten zijn in de plugin."
 
-#: inc/help-tabs.php:124
+#: inc/help-tabs.php:122
 msgid ""
 "There's also an option to delete all cities, which can be helpful if you "
 "activate the plugin a second time. Right now all cities are imported again "
@@ -411,7 +407,7 @@ msgstr ""
 "als je de plugin opnieuw activeert. Dit gebeurt ook als alle steden nog "
 "aanwezig zijn in de database uit een vorige activatie."
 
-#: inc/help-tabs.php:126
+#: inc/help-tabs.php:124
 msgid ""
 "If you select preserve settings, all values will not be deleted from the "
 "database when the plugin is deleted."
@@ -419,7 +415,7 @@ msgstr ""
 "Als je de optie data bewaren inschakelt, worden alle steden bewaard als de "
 "plugin wordt verwijderd."
 
-#: inc/help-tabs.php:132
+#: inc/help-tabs.php:130
 msgid "Author's website"
 msgstr "Auteur’s website"
 
