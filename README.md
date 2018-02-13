@@ -4,7 +4,7 @@ Welcome to the City Selector plugin, which is an extension for [Advanced Custom 
 
 ### Version
 
-0.3
+0.4
 
 ### Installation
 
@@ -82,6 +82,33 @@ You can also add more countries yourself, through SQL or CSV import. There's a s
 The explanation on how to do this, can be found on the first tab/sheet of the excel file.
 
 We have created several country packages (csv files) especially for this plugin. These files are ready to go and can be imported without right away. These will be made available for a small fee soon, through the [ACFCS website](http://acfcs.berryplasman.com).
+
+### Transients
+
+There are 2 functions available, for an easy retrieval of data. 
+```
+acfcs_get_countries();
+```
+This function returns an array containing all countries, with a value and a label for each.
+```
+array(
+    'value' => {country code, 2 char} 
+    'label' => {country name} 
+)
+```
+
+```
+acfcs_get_cities( $country_code );
+```
+This function returns an array with all cities, from a specific country, containing a value, a label and a merged abbreviation of country + state.
+
+```
+array {
+  'label' => string 'Amsterdam',
+  'value' => string 'Amsterdam',
+  'state' => string 'NL-NH'
+}
+```
 
 ### Hooks
 
