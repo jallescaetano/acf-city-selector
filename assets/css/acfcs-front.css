@@ -1,0 +1,14 @@
+/**
+ *  CSS for the (front-end of) ACF City Selector plugin
+ *  Version: 1.0
+ */
+
+/* v4 */
+.field_type-acf_city_selector .dropdown-container {
+    /*margin-bottom: 1em;*/
+}
+
+/* v5 */
+.acf-field-acf-city-selector .dropdown-container {
+    margin-bottom: 0.5em;
+}

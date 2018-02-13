@@ -106,7 +106,7 @@
 				}
                 $stateName = ! empty( $states ) ? $states[ substr( $stateCode, 3 ) ] : false;
 				?>
-                <div class="dropdown-box cs-countries">
+                <div class="dropdown-container acfcs-countries">
 					<?php if ( $field['show_labels'] == 1 ) { ?>
                         <span class="acf-input-header"><?php esc_html_e( 'Select a country', 'acf-city-selector' ); ?></span>
 					<?php } ?>
@@ -125,7 +125,7 @@
                     </select>
                 </div>
 
-                <div class="dropdown-box cs-provinces">
+                <div class="dropdown-container acfcs-provinces">
 					<?php if ( $field['show_labels'] == 1 ) { ?>
                         <span class="acf-input-header"><?php esc_html_e( 'Select a province/state', 'acf-city-selector' ); ?></span>
 					<?php } ?>
@@ -134,7 +134,7 @@
                     </select>
                 </div>
 
-                <div class="dropdown-box cs-cities">
+                <div class="dropdown-container acfcs-cities">
 					<?php if ( $field['show_labels'] == 1 ) { ?>
                         <span class="acf-input-header"><?php esc_html_e( 'Select a city', 'acf-city-selector' ); ?></span>
 					<?php } ?>

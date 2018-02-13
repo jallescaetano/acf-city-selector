@@ -1,46 +1,39 @@
 /**
- *  CSS for the ACF City Selector plugin
+ *  CSS for the (admin of) ACF City Selector plugin
  *  Version: 1.0
  */
 
-/* edit post screens */
-/* v4 */
-
-.field_type-acf_city_selector .dropdown-box {
+/* dropdown container (v4) */
+.field_type-acf_city_selector .dropdown-container,
+/* dropdown container (v5) */
+.acf-field-acf-city-selector .dropdown-container {
     margin-bottom: 1em;
 }
 
-.field_type-acf_city_selector span.acf-input-header {
-    display:       block;
-    margin-bottom: 10px;
-}
-
-/* v5 */
-.acf-field-acf-city-selector .dropdown-box {
-    margin-bottom: 1em;
-}
-
+/* field labels (v4) */
+.field_type-acf_city_selector span.acf-input-header,
+/* field labels (v5) */
 .acf-field-acf-city-selector span.acf-input-header {
     display:       block;
     margin-bottom: 10px;
 }
 
-
 /* admin pages */
-.admin_left, .admin_right {
+.acfcs .admin_left,
+.acfcs .admin_right {
     padding:               20px;
     border:                1px solid #cccccc;
     -moz-border-radius:    8px;
     -webkit-border-radius: 8px;
 }
 
-.admin_left {
+.acfcs .admin_left {
     float:        left;
     width:        60%;
     margin-right: 5%;
 }
 
-.admin_right {
+.acfcs .admin_right {
     float:     left;
     max-width: 25%;
 }

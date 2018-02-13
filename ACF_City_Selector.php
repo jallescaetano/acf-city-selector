@@ -45,11 +45,13 @@
 				register_deactivation_hook( __FILE__,  array( $this, 'acfcs_plugin_deactivation' ) );
 
 				// actions
-				add_action( 'acf/include_field_types',      array( $this, 'acfcs_include_field_types' ) );    // v5
 				add_action( 'acf/register_fields',          array( $this, 'acfcs_include_field_types' ) );    // v4
-				add_action( 'admin_enqueue_scripts',        array( $this, 'acfcs_add_css' ) );
+				add_action( 'acf/include_field_types',      array( $this, 'acfcs_include_field_types' ) );    // v5
+				add_action( 'wp_enqueue_scripts',           array( $this, 'acfcs_add_frontend_css' ) );
+				add_action( 'admin_enqueue_scripts',        array( $this, 'acfcs_add_admin_css' ) );
 				add_action( 'admin_menu',                   array( $this, 'acfcs_add_admin_pages' ) );
 				add_action( 'admin_init',                   array( $this, 'acfcs_errors' ) );
+
 				// add_action( 'save_post',                    array( $this, 'acfcs_before_save' ), 10, 3 );
 
 				// always load, move to $this->
@@ -182,16 +184,6 @@
 				if ( ! file_exists( $target_folder ) ) {
 					mkdir( $target_folder, 0755 );
 				}
-			}
-
-
-			/*
-			 * Load admin pages
-			 */
-			public function acfcs_load_admin_pages() {
-				include( 'inc/dashboard-page.php' );
-				include( 'inc/settings-page.php' );
-				include( 'inc/pro-page.php' );
 			}
 
 
@@ -563,6 +555,16 @@
 				return '<p class="acfcs-admin-menu"><a href="' . site_url() . '/wp-admin/options-general.php?page=acfcs-options">' . esc_html__( 'Dashboard', 'acf-city-selector' ) . '</a> | <a href="' . site_url() . '/wp-admin/options-general.php?page=acfcs-settings">' . esc_html__( 'Settings', 'acf-city-selector' ) . '</a>' . $gopro . '</p>';
 			}
 
+			/*
+			 * Load admin pages
+			 */
+			public function acfcs_load_admin_pages() {
+				include( 'inc/dashboard-page.php' );
+				include( 'inc/settings-page.php' );
+				if ( defined( 'ENV' ) && ENV == 'dev' ) {
+					include( 'inc/pro-page.php' );
+                }
+			}
 
 			/*
 			 * Adds admin pages
@@ -570,15 +572,28 @@
 			public function acfcs_add_admin_pages() {
 				add_options_page( 'ACF City Selector', 'City Selector', 'manage_options', 'acfcs-options', 'acfcs_options' );
 				add_submenu_page( null, 'Settings', 'Settings', 'manage_options', 'acfcs-settings', 'acfcs_settings' );
-				add_submenu_page( null, 'Pro', 'Pro', 'manage_options', 'acfcs-pro', 'acfcs_pro' );
+				if ( defined( 'ENV' ) && ENV == 'dev' ) {
+					add_submenu_page( null, 'Pro', 'Pro', 'manage_options', 'acfcs-pro', 'acfcs_pro' );
+				}
 			}
 
 
 			/*
+			 * Adds CSS on the front-end side
+			 */
+			public function acfcs_add_frontend_css() {
+
+				wp_register_style( 'acfcs-front', plugins_url( 'assets/css/acfcs-front.css', __FILE__ ), '', $this->settings['version'] );
+				wp_enqueue_style( 'acfcs-front' );
+
+			}
+
+			/*
 			 * Adds CSS on the admin side
 			 */
-			public function acfcs_add_css() {
-				wp_enqueue_style( 'acf-city-selector', plugins_url( 'assets/css/acf-city-selector.css', __FILE__ ) );
+			public function acfcs_add_admin_css() {
+				wp_register_style( 'acfcs-admin', plugins_url( 'assets/css/acfcs-admin.css', __FILE__ ), 'acf-input', $this->settings['version'] );
+				wp_enqueue_style( 'acfcs-admin' );
 			}
 		}
 

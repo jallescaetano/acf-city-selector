@@ -120,7 +120,7 @@
 					$states = get_states( $countrycode );
 				}
 				?>
-                <div class="dropdown-box cs-countries">
+                <div class="dropdown-container acfcs-countries">
 					<?php if ( $field['show_labels'] == 1 ) { ?>
                         <span class="acf-input-header"><?php esc_html_e( 'Select country', 'acf-city-selector' ); ?></span>
 					<?php } ?>
@@ -139,7 +139,7 @@
                     </select>
                 </div>
 
-                <div class="dropdown-box cs-provinces">
+                <div class="dropdown-container acfcs-provinces">
 					<?php if ( $field['show_labels'] == 1 ) { ?>
                         <span class="acf-input-header"><?php esc_html_e( 'Select province/state', 'acf-city-selector' ); ?></span>
 					<?php } ?>
@@ -148,7 +148,7 @@
                     </select>
                 </div>
 
-                <div class="dropdown-box cs-cities">
+                <div class="dropdown-container acfcs-cities">
 					<?php if ( $field['show_labels'] == 1 ) { ?>
                         <span class="acf-input-header"><?php esc_html_e( 'Select city', 'acf-city-selector' ); ?></span>
 					<?php } ?>
