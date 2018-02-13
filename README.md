@@ -85,11 +85,11 @@ We have created several country packages (csv files) especially for this plugin.
 
 ### Transients
 
-There are 2 functions available, for an easy retrieval of data. 
+There are 2 functions available, for an easy retrieval of data. Both make use of a transient.
 ```
 acfcs_get_countries();
 ```
-This function returns an array containing all countries, with a value and a label for each.
+This function returns transient `acfcs_get_countries` containing all countries, with a value and a label for each.
 ```
 array(
     'value' => {country code, 2 char} 
@@ -100,7 +100,7 @@ array(
 ```
 acfcs_get_cities( $country_code );
 ```
-This function returns an array with all cities, from a specific country, containing a value, a label and a merged abbreviation of country + state.
+This function returns transient `acfcs_get_cities_{country_code}` with all cities, from a specific country, containing a value, a label and a merged abbreviation of country + state.
 
 ```
 array {
@@ -109,6 +109,8 @@ array {
   'state' => string 'NL-NH'
 }
 ```
+
+The transients are also deleted after several actions. Check out the [documentation](http://acfcs.berryplasman.com/documentation/) for more info.
 
 ### Hooks
 
