@@ -143,19 +143,19 @@
 
 			if ( $state_code == '00' ) {
 				$db = $wpdb->get_results( "
-                SELECT * 
-                FROM " . $wpdb->prefix . "cities
-                WHERE country_code = '" . $country_code . "'
-                order by city_name ASC
-            " );
+                    SELECT * 
+                    FROM " . $wpdb->prefix . "cities
+                    WHERE country_code = '" . $country_code . "'
+                    order by city_name ASC
+                " );
 			} else {
 				$db = $wpdb->get_results( "
-                SELECT * 
-                FROM " . $wpdb->prefix . "cities
-                WHERE state_code = '" . $state_code . "'
-                AND country_code='" . $country_code . "'
-                order by city_name ASC
-            " );
+                    SELECT * 
+                    FROM " . $wpdb->prefix . "cities
+                    WHERE state_code = '" . $state_code . "'
+                    AND country_code='" . $country_code . "'
+                    order by city_name ASC
+                " );
 			}
 			$items                 = array();
 			$items[0]['id']        = "";
