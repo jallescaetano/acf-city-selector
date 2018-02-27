@@ -63,7 +63,7 @@
 					);
 				}
 				// sort special "'s" for Holland
-				uasort( $output, 'sort_array_with_quotes' );
+				uasort( $output, 'acfcs_sort_array_with_quotes' );
 
 				// create new transient
 				set_transient( 'acfcs_cities_' . $country_code, $output, 24 * HOUR_IN_SECONDS );
